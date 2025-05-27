@@ -37,21 +37,20 @@ public class PlayerController : MonoBehaviour
         InputMovement = context.ReadValue<Vector2>();
     }
 
-    private void OnCollisionEnter(Collision collision)
-
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("EnemyBullet"))
+        if (other.CompareTag("EnemyBullet"))
         {
-            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+            Bullet bullet = other.GetComponent<Bullet>();
             if (bullet != null)
             {
                 TakeDamage(bullet.damage);
             }
-            Destroy(collision.gameObject);
+
+            Destroy(other.gameObject);
         }
-       
     }
-    void TakeDamage(int amount)
+    public void TakeDamage(int amount)
     {
         currentHealth -= amount;
         Debug.Log("Vida del jugador: " + currentHealth);

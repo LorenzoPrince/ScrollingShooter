@@ -6,6 +6,7 @@ public class EnemyWeapon : MonoBehaviour
     [SerializeField] private float bulletForce = 10f;
     [SerializeField] private float fireRate = 5f;
     [SerializeField] private int maxHealth = 50;
+    [SerializeField] private int collisionDamage = 50; //Daño al chocar
     private int currentHealth;
 
     private float nextFireTime;
@@ -48,17 +49,27 @@ public class EnemyWeapon : MonoBehaviour
             Destroy(bullet, 3f);
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("BulletPlayer"))
+        if (other.CompareTag("Player"))
         {
-            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {                           //DAÑOOO
+                player.TakeDamage(collisionDamage); // Le quitamos 50 de vida por contacto (ajustá el valor que quieras)
+            }
+
+            Destroy(gameObject); // El enemigo se destruye al tocar al jugador
+        }
+        if (other.CompareTag("BulletPlayer"))
+        {
+            Bullet bullet = other.GetComponent<Bullet>();
             if (bullet != null)
             {
                 TakeDamage(bullet.damage);
             }
 
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
     }
 
@@ -77,6 +88,21 @@ public class EnemyWeapon : MonoBehaviour
     {
         Debug.Log("Enemigo destruido");
         Destroy(gameObject);
+    }
+    public void SetMaxHealth(int newMaxHealth)
+    {
+        maxHealth = newMaxHealth;
+        currentHealth = maxHealth;
+
+        // Si tienes la barra de vida , actualízala aca también
+    }
+    public void SetBulletForce(float newBulletForce)
+    {
+        bulletForce = newBulletForce;
+    }
+    public void SetFireRate(float newRate)
+    {
+        fireRate = newRate;
     }
 }
 

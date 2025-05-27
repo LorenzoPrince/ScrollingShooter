@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletForce = 10f;
     [SerializeField] private float fireRate = 5f;
-
+    [SerializeField] private int collisionDamage = 50; //Daño al chocar
     private float nextFireTime;
 
     [SerializeField] private Transform[] firePoints;
@@ -41,18 +41,29 @@ public class Enemy : MonoBehaviour
             Destroy(bullet, 3f);
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("BulletPlayer"))
+        if (other.CompareTag("Player"))
+        {
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {                           //daño
+                player.TakeDamage(collisionDamage); // Le quitamos 50 de vida por contacto (ajustá el valor que quieras)
+            }
+
+            Destroy(gameObject); // El enemigo se destruye al tocar al jugador
+        }
+
+        if (other.CompareTag("BulletPlayer"))
         {
             // Obtener script de la bala para el daño
-            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+            Bullet bullet = other.GetComponent<Bullet>();
             if (bullet != null)
             {
                 TakeDamage(bullet.damage);
             }
 
-            Destroy(collision.gameObject); // Destruir la bala al impactar
+            Destroy(other.gameObject);
         }
     }
 
@@ -71,5 +82,13 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Enemigo destruido");
         Destroy(gameObject);
+    }
+    public void SetBulletForce(float newBulletForce)
+    {
+        bulletForce = newBulletForce;
+    }
+    public void SetFireRate(float newRate)
+    {
+        fireRate = newRate;
     }
 }

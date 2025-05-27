@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class enemySpawner : MonoBehaviour
 {
+    public GameObject escortEnemy;
+
     [Header("Velocidad base de los enemigos")]
     public float baseSpeed = 8f;
     public float speedIncreasePerWave = 5f;
@@ -21,6 +23,9 @@ public class enemySpawner : MonoBehaviour
 
     [Header("Profundidad de aparición (Z)")]
     public float spawnZ = 128f; // Aparecerán lejos del jugador/cámara
+
+    [Header("Z más cerca para el jefe y escoltas")]
+    public float bossSpawnZ = 60f; // 
 
     [Header("Control de oleadas")]
     public float spawnInterval = 5f;
@@ -88,23 +93,63 @@ public class enemySpawner : MonoBehaviour
         // Ajustamos la velocidad del enemigo según la oleada
         if (enemy != null)
         {
+            // Escalado de dificultad
+            float speed = baseSpeed + (currentWave - 1) * speedIncreasePerWave;
+            float newBulletForce = 10f; // Siempre igual
+            //float newBulletForce = 10f + (currentWave - 1) * 2f;
+            float newFireRate = Mathf.Max(0.75f, 2f - (currentWave - 1) * 0.2f);
+
+            // Velocidad de movimiento
             enemyMove movement = enemy.GetComponent<enemyMove>();
             if (movement != null)
             {
-                float speed = baseSpeed + (currentWave - 1) * speedIncreasePerWave;
                 movement.SetSpeed(speed);
+            }
+
+            // Velocidad y frecuencia de disparo
+            Enemy enemyScript = enemy.GetComponent<Enemy>();
+            if (enemyScript != null)
+            {
+                enemyScript.SetBulletForce(newBulletForce);
+                enemyScript.SetFireRate(newFireRate);
             }
             else
             {
-                Debug.LogWarning("El prefab enemigo no tiene componente enemyMove!");
+                EnemyWeapon weaponScript = enemy.GetComponent<EnemyWeapon>();
+                if (weaponScript != null)
+                {
+                    weaponScript.SetBulletForce(newBulletForce);
+                    weaponScript.SetFireRate(newFireRate);
+                }
+                else
+                {
+                    Debug.LogWarning("El enemigo no tiene ni Enemy ni EnemyWeapon.");
+                }
             }
         }
     }
 
     void SpawnBoss()
     {
-        Vector3 bossSpawnPos = new Vector3(0, maxY, spawnZ);
-        Instantiate(bossEnemy, bossSpawnPos, Quaternion.identity);
-        Debug.Log("¡Boss ha aparecido!");
+        Vector3 bossSpawnPos = new Vector3(0, maxY, bossSpawnZ);
+        GameObject boss = Instantiate(bossEnemy, bossSpawnPos, Quaternion.identity);
+
+        // Aumentar la vida del jefe (accediendo al componente EnemyWeapon)
+        EnemyWeapon weapon = boss.GetComponent<EnemyWeapon>();
+        if (weapon != null)
+        {
+            weapon.SetMaxHealth(300); // Por ejemplo, 300 de vida
+        }
+
+        // Spawnear escoltas
+        float escortOffsetX = 2f; // distancia lateral
+        Vector3 leftEscortPos = bossSpawnPos + new Vector3(-escortOffsetX, 0, 0);
+        Vector3 rightEscortPos = bossSpawnPos + new Vector3(escortOffsetX, 0, 0);
+
+        Instantiate(escortEnemy, leftEscortPos, Quaternion.identity);
+        Instantiate(escortEnemy, rightEscortPos, Quaternion.identity);
+
+        Debug.Log("¡Boss ha aparecido con escoltas!");
+
     }
 }
