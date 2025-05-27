@@ -10,9 +10,12 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private Transform[] firePoints;
 
+    public int maxHealth = 50;
+    private int currentHealth;
     void Start()
     {
         nextFireTime = Time.time;
+        currentHealth = maxHealth; // Inicializar vida
     }
 
     void Update()
@@ -37,5 +40,36 @@ public class Enemy : MonoBehaviour
 
             Destroy(bullet, 3f);
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("BulletPlayer"))
+        {
+            // Obtener script de la bala para el daño
+            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                TakeDamage(bullet.damage);
+            }
+
+            Destroy(collision.gameObject); // Destruir la bala al impactar
+        }
+    }
+
+    void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        Debug.Log("Enemigo recibe daño. Vida restante: " + currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Enemigo destruido");
+        Destroy(gameObject);
     }
 }

@@ -5,8 +5,12 @@ public class EnemyWeapon : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletForce = 10f;
     [SerializeField] private float fireRate = 5f;
+    [SerializeField] private int maxHealth = 50;
+    private int currentHealth;
 
     private float nextFireTime;
+
+
 
     [SerializeField] private Transform[] firePoints; // Array de spawns para disparar desde varios puntos
 
@@ -16,6 +20,7 @@ public class EnemyWeapon : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         nextFireTime = Time.time;
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -42,6 +47,36 @@ public class EnemyWeapon : MonoBehaviour
 
             Destroy(bullet, 3f);
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("BulletPlayer"))
+        {
+            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                TakeDamage(bullet.damage);
+            }
+
+            Destroy(collision.gameObject);
+        }
+    }
+
+    void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        Debug.Log("Enemigo recibe daño. Vida restante: " + currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Enemigo destruido");
+        Destroy(gameObject);
     }
 }
 
