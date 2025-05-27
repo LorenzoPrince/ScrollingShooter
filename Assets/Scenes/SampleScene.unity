@@ -627,7 +627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 640022617}
-  - component: {fileID: 640022616}
+  - component: {fileID: 640022618}
   m_Layer: 0
   m_Name: SpawnEnemy
   m_TagString: Untagged
@@ -635,23 +635,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &640022616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640022615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ecb5135b398a08489a215a5ee02c39a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blocks:
-  - {fileID: 1444788384132285767, guid: 57a1166414d7ee14ab739c5489ec6165, type: 3}
-  - {fileID: 5003860113737284234, guid: 0b067fb5702ff5e4c97d49d1ee38552a, type: 3}
-  - {fileID: 5839111139304556059, guid: 2ecf817c295fe3f4ba897aaa4ac34749, type: 3}
-  spawnPoint: {fileID: 640022617}
 --- !u!4 &640022617
 Transform:
   m_ObjectHideFlags: 0
@@ -667,6 +650,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &640022618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640022615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cefd2660e74d954094e6d42857ba667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSpeed: 8
+  speedIncreasePerWave: 1
+  enemyType1: {fileID: 1444788384132285767, guid: 57a1166414d7ee14ab739c5489ec6165, type: 3}
+  enemyType2: {fileID: 5003860113737284234, guid: 0b067fb5702ff5e4c97d49d1ee38552a, type: 3}
+  enemyType3: {fileID: 5839111139304556059, guid: 2ecf817c295fe3f4ba897aaa4ac34749, type: 3}
+  bossEnemy: {fileID: 5839111139304556059, guid: ade2184040e173f4c9e993cb4e34f319, type: 3}
+  minX: -4.69
+  maxX: 4.69
+  minY: -2.02
+  maxY: 3.02
+  spawnZ: 128
+  spawnInterval: 5
+  enemiesPerWave: 4
+  timeBetweenWaves: 5
 --- !u!1 &715584747
 GameObject:
   m_ObjectHideFlags: 0

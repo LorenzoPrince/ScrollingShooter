@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 6440581836454441985}
   - component: {fileID: 8296711405575393235}
   - component: {fileID: 5844316740477477699}
+  - component: {fileID: 4141107813527173091}
   m_Layer: 0
   m_Name: SpecialCaza
   m_TagString: Untagged
@@ -646,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37642d0e0c1709d44b92ede07a1821ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 8
 --- !u!54 &5844316740477477699
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -674,3 +675,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
+--- !u!114 &4141107813527173091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5839111139304556059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae60b8ec5e9b4fe43bf13ce5fcd226b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 8
