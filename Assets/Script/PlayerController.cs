@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem; // para usar el nuevo sistema
-public class NewMonoBehaviourScript : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    public int maxHealth = 50;
+    private int currentHealth;
     Vector2 InputMovement;
     public float moveSpeed = 5f;
     void Start()
@@ -31,11 +32,5 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         InputMovement = context.ReadValue<Vector2>();
     }
-    public void Shoot(InputAction.CallbackContext context)
-    {
-        if (context.performed) // Esto se fija que el disparo solo ocurre una vez cuando se presiona el botón, y no mientras se mantiene presionado.
-        {
-            Debug.Log("Fire");
-        } 
-    }
+
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletForce = 10f;
@@ -8,28 +8,33 @@ public class Enemy : MonoBehaviour
 
     private float nextFireTime;
 
-    [SerializeField] private Transform[] firePoints;
+    [SerializeField] private Transform[] firePoints; // Array de spawns para disparar desde varios puntos
+
+    private Transform target; // El jugador u otro objetivo
 
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         nextFireTime = Time.time;
     }
 
     void Update()
     {
-        if (Time.time >= nextFireTime)
+        if (Time.time >= nextFireTime) //para qeu dispare reiteradasveces
         {
-            ShootForward();
+            ShootAtTarget();
             nextFireTime = Time.time + fireRate;
         }
     }
 
-    void ShootForward()
+    void ShootAtTarget()
     {
+        if (target == null || firePoints.Length == 0) // si no detecta el tag
+            return;
 
         foreach (Transform firePoint in firePoints)
         {
-            Vector3 direction = firePoint.forward;
+            Vector3 direction = (target.position - firePoint.position).normalized;
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(direction));
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
@@ -39,3 +44,5 @@ public class Enemy : MonoBehaviour
         }
     }
 }
+
+
