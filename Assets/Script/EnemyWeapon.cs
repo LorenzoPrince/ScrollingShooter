@@ -120,8 +120,7 @@ public class EnemyWeapon : MonoBehaviour
 
         // Destruir el objeto después de unos segundos para que se vea la física
         Destroy(gameObject, 4f);
-        // Pausar el juego
-        Time.timeScale = 0f;
+        // Pau
 
         // Activar y reproducir el video
         if (cutsceneVideoPlayer != null)

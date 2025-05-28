@@ -62,6 +62,7 @@ public class enemySpawner : MonoBehaviour
                 Debug.Log("primera oleada");
                 if (i == 0)
                 {
+                    yield return new WaitForSeconds(4f);
                     DespecializedXwing.Pause();  // Pausa después del primer enemigo spawn
                 }
 
