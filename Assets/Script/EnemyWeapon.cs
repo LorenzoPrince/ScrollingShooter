@@ -1,8 +1,9 @@
 using UnityEngine;
-using UnityEngine.Video;
+using UnityEngine.SceneManagement;
+
 public class EnemyWeapon : MonoBehaviour
 {
-    [SerializeField] VideoPlayer cutsceneVideoPlayer; // Asignar en inspector
+
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletForce = 10f;
     [SerializeField] private float fireRate = 5f;
@@ -120,22 +121,10 @@ public class EnemyWeapon : MonoBehaviour
 
         // Destruir el objeto después de unos segundos para que se vea la física
         Destroy(gameObject, 4f);
+        SceneManager.LoadScene("Video");
         // Pau
 
-        // Activar y reproducir el video
-        if (cutsceneVideoPlayer != null)
-        {
-            cutsceneVideoPlayer.gameObject.SetActive(true);
-            cutsceneVideoPlayer.Play();
 
-            // Escuchar cuando termina el video para reanudar el juego y destruir enemigo
-            cutsceneVideoPlayer.loopPointReached += OnVideoFinished;
-        }
-        else
-        {
-            Debug.LogWarning("No hay VideoPlayer asignado.");
-            Destroy(gameObject, 4f);
-        }
     }
 
     public void SetMaxHealth(int newMaxHealth)
@@ -154,19 +143,7 @@ public class EnemyWeapon : MonoBehaviour
         fireRate = newRate;
     }
 
-    void OnVideoFinished(VideoPlayer vp)
-    {
-        // Se llama cuando el video termina
-        vp.gameObject.SetActive(false);
 
-        // Destruir enemigo
-        Destroy(gameObject);
-
-        // Desregistrar el callback para evitar fugas o dobles llamadas
-        vp.loopPointReached -= OnVideoFinished;
-
-        // Si querés, acá podés reanudar lógica de juego o activar cosas
-    }
 }
 
 

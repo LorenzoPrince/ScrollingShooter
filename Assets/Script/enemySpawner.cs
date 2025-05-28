@@ -40,7 +40,7 @@ public class enemySpawner : MonoBehaviour
     {
         Debug.Log("Inicia Start de enemySpawner");
 
-        Invoke("StartSpawnWaves", 10f);
+        Invoke("StartSpawnWaves", 17f);
         warningPanel.SetActive(false);
         DespecializedXwing.Play();
     }

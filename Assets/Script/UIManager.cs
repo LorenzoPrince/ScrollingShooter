@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+
+    public GameObject panelMenu;
 
     [Header("Texto UI")]
     public Slider playerHealthBar;          // Barra de vida del jugador
@@ -51,7 +54,29 @@ public class UIManager : MonoBehaviour
             bossHealthBar.value = bossHealthBar.maxValue;
         }
     }
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "video" )
+        {
+            Invoke("Menu", 10f);
 
+        }
+    }
+    void Menu()
+    {
+        panelMenu.SetActive(true);
+
+    }
+    public void ReturnGame()
+    {
+        SceneManager.LoadScene("Game"); // Reemplazá con tu escena real
+
+    }
+    public void Exit()
+    {
+
+        Application.Quit();
+    }
     public void UpdatePlayerHealth(int current, int max)
     {
         if (playerHealthBar != null)
