@@ -25,7 +25,7 @@ public class enemySpawner : MonoBehaviour
     public float spawnZ = 128f; // Aparecerán lejos del jugador/cámara
 
     [Header("Z más cerca para el jefe y escoltas")]
-    public float bossSpawnZ = 60f; // 
+    public float bossSpawnZ = 0f; // 
 
     [Header("Control de oleadas")]
     public float spawnInterval = 5f;
@@ -54,8 +54,10 @@ public class enemySpawner : MonoBehaviour
                 Debug.Log("primera oleada");
             }
 
-            if (currentWave >= 5)
+            if (currentWave >= 1)
             {
+                Debug.Log("Esperando 15 segundos antes de spawnear al jefe...");
+                yield return new WaitForSeconds(15f); // Espera de 15 segundos
                 SpawnBoss();
                 Debug.Log("SPAWNEA EL BOSS");
                 yield break; // terminamos tras el boss
@@ -95,7 +97,7 @@ public class enemySpawner : MonoBehaviour
         {
             // Escalado de dificultad
             float speed = baseSpeed + (currentWave - 1) * speedIncreasePerWave;
-            float newBulletForce = 10f; // Siempre igual
+            float newBulletForce = 30f; // Siempre igual
             //float newBulletForce = 10f + (currentWave - 1) * 2f;
             float newFireRate = Mathf.Max(0.75f, 2f - (currentWave - 1) * 0.2f);
 
@@ -131,24 +133,50 @@ public class enemySpawner : MonoBehaviour
 
     void SpawnBoss()
     {
+
         Vector3 bossSpawnPos = new Vector3(0, maxY, bossSpawnZ);
+        Debug.Log("Boss spawn position: " + bossSpawnPos);
         GameObject boss = Instantiate(bossEnemy, bossSpawnPos, Quaternion.identity);
+
+        // Evitar que el boss se mueva desactivando su script enemyMove
+        enemyMove bossMove = boss.GetComponent<enemyMove>();
+        if (bossMove != null)
+        {
+            bossMove.enabled = false; // Desactiva el movimiento
+        }
+
 
         // Aumentar la vida del jefe (accediendo al componente EnemyWeapon)
         EnemyWeapon weapon = boss.GetComponent<EnemyWeapon>();
         if (weapon != null)
         {
-            weapon.SetMaxHealth(300); // Por ejemplo, 300 de vida
+            weapon.SetMaxHealth(1000); // Por ejemplo, 300 de vida
+            UIManager.Instance.ShowBossUI(1000, 1000);
         }
 
-        // Spawnear escoltas
-        float escortOffsetX = 2f; // distancia lateral
-        Vector3 leftEscortPos = bossSpawnPos + new Vector3(-escortOffsetX, 0, 0);
-        Vector3 rightEscortPos = bossSpawnPos + new Vector3(escortOffsetX, 0, 0);
 
-        Instantiate(escortEnemy, leftEscortPos, Quaternion.identity);
-        Instantiate(escortEnemy, rightEscortPos, Quaternion.identity);
+        // Posiciones de escoltas ys spawner
+        float escortOffsetX = 3.5f; // Más separados en X
+        float escortOffsetY = -1f;  // Más abajo en Y
 
+        Vector3 leftEscortPos = bossSpawnPos + new Vector3(-escortOffsetX, escortOffsetY, 0);
+        Vector3 rightEscortPos = bossSpawnPos + new Vector3(escortOffsetX, escortOffsetY, 0);
+
+        GameObject leftEscort = Instantiate(escortEnemy, leftEscortPos, Quaternion.identity);
+        GameObject rightEscort = Instantiate(escortEnemy, rightEscortPos, Quaternion.identity);
+
+        // Asignar más vida a las escoltas
+        EnemyWeapon leftEscortWeapon = leftEscort.GetComponent<EnemyWeapon>();
+        if (leftEscortWeapon != null)
+        {
+            leftEscortWeapon.SetMaxHealth(500); // Vida escolta izquierda
+        }
+
+        EnemyWeapon rightEscortWeapon = rightEscort.GetComponent<EnemyWeapon>();
+        if (rightEscortWeapon != null)
+        {
+            rightEscortWeapon.SetMaxHealth(500); // Vida escolta derecha
+        }
         Debug.Log("¡Boss ha aparecido con escoltas!");
 
     }

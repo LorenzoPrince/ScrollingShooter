@@ -76,6 +76,7 @@ public class EnemyWeapon : MonoBehaviour
     void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
+        UIManager.Instance.UpdateBossHealth(currentHealth);
         Debug.Log("Enemigo recibe daño. Vida restante: " + currentHealth);
 
         if (currentHealth <= 0)
@@ -86,6 +87,8 @@ public class EnemyWeapon : MonoBehaviour
 
     void Die()
     {
+        UIManager.Instance.AddKill();
+        UIManager.Instance.HideBossUI();   // Ocultá barra cuando muere el jefe
         Debug.Log("Enemigo destruido");
         Destroy(gameObject);
     }

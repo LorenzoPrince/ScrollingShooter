@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth = maxHealth; // Inicializamos vida
         Debug.Log("Vida inicial del jugador: " + currentHealth);
-  
+        UIManager.Instance.UpdatePlayerHealth(currentHealth, maxHealth); // Actualizamos la UI al iniciar
+
     }
 
     // Update is called once per frame
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        UIManager.Instance.UpdatePlayerHealth(currentHealth, maxHealth);
         Debug.Log("Vida del jugador: " + currentHealth);
 
         if (currentHealth <= 0)

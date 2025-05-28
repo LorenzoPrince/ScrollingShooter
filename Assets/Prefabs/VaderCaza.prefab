@@ -512,7 +512,6 @@ GameObject:
   - component: {fileID: 8661755101369836373}
   - component: {fileID: 6440581836454441985}
   - component: {fileID: 5844316740477477699}
-  - component: {fileID: 3126069091113094852}
   m_Layer: 0
   m_Name: VaderCaza
   m_TagString: Untagged
@@ -628,9 +627,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6067048411438488790, guid: 357771704cceb564c8dc6a01c903858b, type: 3}
-  bulletForce: 10
+  bulletForce: 40
   fireRate: 4
   maxHealth: 50
+  collisionDamage: 50
   firePoints:
   - {fileID: 8087792175135306301}
   - {fileID: 5920249180604542305}
@@ -659,18 +659,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 118
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &3126069091113094852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5839111139304556059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae60b8ec5e9b4fe43bf13ce5fcd226b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 8

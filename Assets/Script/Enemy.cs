@@ -81,6 +81,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemigo destruido");
+        UIManager.Instance.AddKill();
         Destroy(gameObject);
     }
     public void SetBulletForce(float newBulletForce)
