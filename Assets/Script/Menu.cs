@@ -15,6 +15,10 @@ public class Menu : MonoBehaviour
         {
             StartCoroutine(ActivarMenuDespuesDeSegundos(10));
         }
+        if (SceneManager.GetActiveScene().name == "Death")
+        {
+            StartCoroutine(ActivarMenuDespuesDeSegundos(3));
+        }
     }
 
     IEnumerator ActivarMenuDespuesDeSegundos(float segundos)
@@ -24,7 +28,12 @@ public class Menu : MonoBehaviour
         panelMenu.SetActive(true);
     }
 
-
+    IEnumerator ActivarMenuDeath(float segundo)
+    {
+        yield return new WaitForSeconds(segundo);
+        Debug.Log("Activando panel después de " + segundo + " segundos");
+        panelMenu.SetActive(true);
+    }
     public void ReturnGame()
     {
         SceneManager.LoadScene("Game"); // Reemplazá con tu escena real

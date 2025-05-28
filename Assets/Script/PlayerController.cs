@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem; // para usar el nuevo sistema
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         Debug.Log("¡Jugador muerto!");
+        SceneManager.LoadScene("Death");
         gameObject.SetActive(false); // Puedes usar solo esto o Destroy(gameObject)
 
     }

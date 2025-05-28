@@ -159,11 +159,11 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212502566}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: d4de2fae5e5724f4daeeb14a4cbc6f33, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: b3b91484e3b2b8b419b1fc8bedfb9d01, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: e3b677562a7d33645b9354682067b7bf, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 7811c2e31b9d4c14e992b963e562bb57, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -219,9 +219,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 560794703}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -376, y: 443}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -393.2, y: 40}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &551403359
@@ -246,7 +246,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: '
 
-    You destroyed the Death Star'
+
+
+    red five down'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -954,7 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.90588236, g: 0.7647059, b: 0.06666667, a: 1}
+  m_Color: {r: 0.87058824, g: 0.10980392, b: 0.05490196, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1275,7 +1277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: e3b677562a7d33645b9354682067b7bf, type: 2}
+  m_Texture: {fileID: 8400000, guid: 7811c2e31b9d4c14e992b963e562bb57, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1398,7 +1400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9056604, g: 0.76089823, b: 0.06407974, a: 1}
+  m_Color: {r: 0.8679245, g: 0.10732207, b: 0.05322181, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

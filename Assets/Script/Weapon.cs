@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-
+    public AudioSource blaster;         // Asigna el audio en el Inspector
     [SerializeField] private float bulletForce; //es para que sea privado pero se siga viendo en el inspector y editarlo, pero no podes editarlo en otro script. 
     [SerializeField] private GameObject objectPrefab;
    // [SerializeField] private GameObject shootVFXPrefab; // Prefab de las part�culas del disparo
@@ -14,7 +14,6 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        //audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -25,6 +24,7 @@ public class Weapon : MonoBehaviour
         {
             //audioSource.Play();
             weapon();
+            blaster.Play();
         }
     }
     [SerializeField]
@@ -41,6 +41,8 @@ public class Weapon : MonoBehaviour
 
 
         // Instanciar el efecto de part�culas en la misma posici�n del disparo
+        // Reproducir sonido
+
 
         Destroy(bulletClone, 1.3f);
         // en el prefab de la bala hago que si se choca contra algo se elimine la bala pero esto en el prefab

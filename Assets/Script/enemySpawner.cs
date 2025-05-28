@@ -68,7 +68,7 @@ public class enemySpawner : MonoBehaviour
 
             }
 
-            if (currentWave >= 1)
+            if (currentWave >= 5)
             {
                 Debug.Log("Esperando 15 segundos antes de spawnear al jefe...");
 
