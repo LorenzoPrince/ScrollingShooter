@@ -11,6 +11,8 @@ public class EnemyWeapon : MonoBehaviour
 
     private float nextFireTime;
 
+        public EnemyWeapon leftEscort;
+    public EnemyWeapon rightEscort;
 
 
     [SerializeField] private Transform[] firePoints; // Array de spawns para disparar desde varios puntos
@@ -19,9 +21,11 @@ public class EnemyWeapon : MonoBehaviour
 
     void Start()
     {
+
         target = GameObject.FindGameObjectWithTag("Player").transform;
         nextFireTime = Time.time;
         currentHealth = maxHealth;
+
     }
 
     void Update()
@@ -76,7 +80,11 @@ public class EnemyWeapon : MonoBehaviour
     void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
-        UIManager.Instance.UpdateBossHealth(currentHealth);
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.UpdateBossHealth(currentHealth);
+        }
+
         Debug.Log("Enemigo recibe daño. Vida restante: " + currentHealth);
 
         if (currentHealth <= 0)
@@ -87,10 +95,30 @@ public class EnemyWeapon : MonoBehaviour
 
     void Die()
     {
-        UIManager.Instance.AddKill();
-        UIManager.Instance.HideBossUI();   // Ocultá barra cuando muere el jefe
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb == null)
+            rb = gameObject.AddComponent<Rigidbody>();
+
+        rb.constraints = RigidbodyConstraints.None;
+        Vector3 impulseDirection = transform.forward;
+        rb.AddForce(impulseDirection * 50f, ForceMode.Impulse);
+        // Aplica torque para que gire 
+        Vector3 randomTorque = new Vector3(50f, 50f, 50f);
+        rb.AddTorque(randomTorque, ForceMode.Impulse);
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.AddKill();
+            UIManager.Instance.HideBossUI();
+        }
+        else
+        {
+            Debug.LogWarning("UIManager.Instance es null");
+        }
+
         Debug.Log("Enemigo destruido");
-        Destroy(gameObject);
+
+        // Destruir el objeto después de unos segundos para que se vea la física
+        Destroy(gameObject, 4f);
     }
     public void SetMaxHealth(int newMaxHealth)
     {

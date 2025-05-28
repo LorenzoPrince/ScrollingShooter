@@ -7,7 +7,8 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     [Header("Texto UI")]
-    public TextMeshProUGUI playerHealthText;
+    public Slider playerHealthBar;          // Barra de vida del jugador
+    public TextMeshProUGUI xwingText;       // Texto fijo "Xwing"
     public TextMeshProUGUI killCountText;
 
     [Header("Boss UI")]
@@ -24,19 +25,40 @@ public class UIManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        // Ocultar toda la UI del jefe al inicio
-        bossUIGroup.SetActive(false);
+  
+        bossUIGroup.SetActive(false);       // Ocultar toda la UI del jefe al inicio
+        if (xwingText != null)
+        {
+            xwingText.text = "X-wing";
+        }
     }
 
     void Start()
     {
         killCount = 0;
         killCountText.text = "Kills: 0";
+
+        if (playerHealthBar != null) //ARREGLAR BARRA NO LLENA ES AGRANDAR EL FILL Y MOVERLO.
+        {
+
+            playerHealthBar.maxValue = 100;
+            playerHealthBar.value = playerHealthBar.maxValue;
+        }
+
+        if (bossHealthBar != null)
+        {
+            bossHealthBar.maxValue = 100;
+            bossHealthBar.value = bossHealthBar.maxValue;
+        }
     }
 
     public void UpdatePlayerHealth(int current, int max)
     {
-        playerHealthText.text = $"Jugador: {current}/{max} HP";
+        if (playerHealthBar != null)
+        {
+            playerHealthBar.maxValue = max;
+            playerHealthBar.value = current;
+        }
     }
 
     public void ShowBossUI(int current, int max)
