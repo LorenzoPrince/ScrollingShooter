@@ -4,7 +4,9 @@ using UnityEngine;
 public class enemySpawner : MonoBehaviour
 {
     public GameObject escortEnemy;
-
+    public GameObject warningPanel;
+    public AudioSource warningAudio;
+    public AudioSource DespecializedXwing;
     [Header("Velocidad base de los enemigos")]
     public float baseSpeed = 8f;
     public float speedIncreasePerWave = 5f;
@@ -37,13 +39,19 @@ public class enemySpawner : MonoBehaviour
     void Start()
     {
         Debug.Log("Inicia Start de enemySpawner");
-        StartCoroutine(SpawnWaves());
+
+        Invoke("StartSpawnWaves", 10f);
+        warningPanel.SetActive(false);
+        DespecializedXwing.Play();
     }
 
     IEnumerator SpawnWaves()
     {
+
+
         while (true)
         {
+
             currentWave++;
             Debug.Log("Oleada " + currentWave);
 
@@ -52,18 +60,39 @@ public class enemySpawner : MonoBehaviour
                 SpawnEnemy();
                 yield return new WaitForSeconds(spawnInterval);
                 Debug.Log("primera oleada");
+                if (i == 0)
+                {
+                    DespecializedXwing.Pause();  // Pausa después del primer enemigo spawn
+                }
+
             }
 
             if (currentWave >= 1)
             {
                 Debug.Log("Esperando 15 segundos antes de spawnear al jefe...");
-                yield return new WaitForSeconds(15f); // Espera de 15 segundos
+
+
+
+                yield return new WaitForSeconds(7f);
+                warningAudio.Play();
+                yield return new WaitForSeconds(4f);
+
+
+                warningPanel.SetActive(true);
+
+      
+                yield return new WaitForSeconds(7f);
+
+                // Ocultar cartel antes de spawnear
+                warningPanel.SetActive(false);
                 SpawnBoss();
                 Debug.Log("SPAWNEA EL BOSS");
+                warningPanel.SetActive(false);
                 yield break; // terminamos tras el boss
             }
 
             yield return new WaitForSeconds(timeBetweenWaves);
+
         }
     }
 
@@ -179,5 +208,9 @@ public class enemySpawner : MonoBehaviour
         }
         Debug.Log("¡Boss ha aparecido con escoltas!");
 
+    }
+    void StartSpawnWaves()
+    {
+        StartCoroutine(SpawnWaves());
     }
 }

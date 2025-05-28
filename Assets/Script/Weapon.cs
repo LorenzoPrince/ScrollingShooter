@@ -42,7 +42,7 @@ public class Weapon : MonoBehaviour
 
         // Instanciar el efecto de part�culas en la misma posici�n del disparo
 
-        Destroy(bulletClone, 2f);
+        Destroy(bulletClone, 1.3f);
         // en el prefab de la bala hago que si se choca contra algo se elimine la bala pero esto en el prefab
     }
 
