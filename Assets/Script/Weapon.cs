@@ -27,7 +27,6 @@ public class Weapon : MonoBehaviour
             blaster.Play();
         }
     }
-    [SerializeField]
     void weapon()
     {
         Cursor.visible = false;
