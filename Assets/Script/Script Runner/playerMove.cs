@@ -5,19 +5,24 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public float distance = 3f; // en la que se mueva
+    public float distance = 4f; // en la que se mueva
     private int actual = 1; // 1 centro seria 2 derecha 0 izquierda
     public float cambioSpeed = 5f; // velocidad hacia adelante
-    public float Speed = 1f;
+
     private float posicionActual;
 
 
     public int coins = 0;
+    private void Awake()
+    {
+        actual = 1;
 
-    void Start()
+
+    }
+        void Start()
     {
         Time.timeScale = 1f;
- 
+        posicionActual = actual * distance; //para que inicie en el 1
         transform.position = new Vector3(transform.position.x, transform.position.y, posicionActual);
 
 
@@ -27,14 +32,14 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             if (actual > 0)
             {
                 actual--;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.A))
         {
             if (actual < 2)
             {
@@ -42,6 +47,7 @@ public class PlayerMove : MonoBehaviour
 
             }
         }
+
         posicionActual = actual * distance;
         Vector3 posicion = new Vector3(transform.position.x, transform.position.y, posicionActual); //agarra la distancia del nuevo vector
         transform.position = Vector3.Lerp(transform.position, posicion, Time.deltaTime * cambioSpeed); //lo mueve al vector
