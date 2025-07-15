@@ -328,6 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blocks:
   - {fileID: 391191486690513476, guid: 40c32f60facc43741bde0e2354c12388, type: 3}
+  - {fileID: 391191486690513476, guid: 40c32f60facc43741bde0e2354c12388, type: 3}
   spawnPoint: {fileID: 342454382}
 --- !u!4 &342454382
 Transform:
@@ -375,6 +376,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemys:
   - {fileID: 2000328536562584933, guid: 7e8543f3e527523429cd24bd5bc95021, type: 3}
+  - {fileID: 2000328536562584933, guid: 7e8543f3e527523429cd24bd5bc95021, type: 3}
+  - {fileID: 1444788384132285767, guid: c1279ac66645b7244b2572cacae54cdd, type: 3}
   distance: 4
   cambioSpeed: 5
   spawnPoint: {fileID: 476035672}

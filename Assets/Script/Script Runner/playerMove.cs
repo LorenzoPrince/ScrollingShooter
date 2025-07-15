@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour
         void Start()
     {
         Time.timeScale = 1f;
-       // posicionActual = actual * distance; //para que inicie en el 1
+        posicionActual = actual * distance; //para que inicie en el 1
         transform.position = new Vector3(transform.position.x, transform.position.y, posicionActual);
 
 

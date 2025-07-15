@@ -20,7 +20,7 @@ public class spawnDamage : MonoBehaviour
         posicionActual = actual * distance; //para que inicie en el 1
         transform.position = new Vector3(transform.position.x, transform.position.y, posicionActual);
         SpawnBlock();
-        InvokeRepeating("SpawnBlock", 1f, 1f);
+        InvokeRepeating("SpawnBlock", 0, 1f);
     }
 
     // Update is called once per frame
