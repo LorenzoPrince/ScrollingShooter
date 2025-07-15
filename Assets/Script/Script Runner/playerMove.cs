@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float distance = 4f; // en la que se mueva
     private int actual = 1; // 1 centro seria 2 derecha 0 izquierda
-    public float cambioSpeed = 5f; // velocidad hacia adelante
+    public float cambioSpeed = 5f; // velocidad hacia los costados que se mueve
 
     private float posicionActual;
 
@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour
         void Start()
     {
         Time.timeScale = 1f;
-        posicionActual = actual * distance; //para que inicie en el 1
+       // posicionActual = actual * distance; //para que inicie en el 1
         transform.position = new Vector3(transform.position.x, transform.position.y, posicionActual);
 
 
