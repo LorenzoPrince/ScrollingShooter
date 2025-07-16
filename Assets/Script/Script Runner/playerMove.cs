@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 public class PlayerMove : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -12,7 +13,8 @@ public class PlayerMove : MonoBehaviour
     private float posicionActual;
 
 
-    public int coins = 0;
+
+    //public int coins = 0;
     private void Awake()
     {
         actual = 1;
@@ -26,12 +28,11 @@ public class PlayerMove : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, posicionActual);
 
 
-
     }
     // Update is called once per frame
     void Update()
     {
-
+ 
         if (Input.GetKeyDown(KeyCode.D))
         {
             if (actual > 0)
@@ -52,11 +53,22 @@ public class PlayerMove : MonoBehaviour
         Vector3 posicion = new Vector3(transform.position.x, transform.position.y, posicionActual); //agarra la distancia del nuevo vector
         transform.position = Vector3.Lerp(transform.position, posicion, Time.deltaTime * cambioSpeed); //lo mueve al vector
     }
- 
+
+
     public void Rejugar()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    private void OnTriggerEnter(Collider contraLoQueChoque)
+    {
+        Debug.Log("choque contra " + contraLoQueChoque.gameObject.name);
+        if (contraLoQueChoque.gameObject.CompareTag("Shoot"))
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("DeathRunner");
+
+        }
     }
 
 }

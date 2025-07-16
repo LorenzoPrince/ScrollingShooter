@@ -31,7 +31,7 @@ public class enemySpawner : MonoBehaviour
 
     [Header("Control de oleadas")]
     public float spawnInterval = 5f;
-    public int enemiesPerWave = 5;
+    public int enemiesPerWave = 1;
     public float timeBetweenWaves = 5f;
 
     private int currentWave = 0;
@@ -68,7 +68,7 @@ public class enemySpawner : MonoBehaviour
 
             }
 
-            if (currentWave >= 5)
+            if (currentWave >= 1)
             {
                 Debug.Log("Esperando 15 segundos antes de spawnear al jefe...");
 
@@ -180,7 +180,7 @@ public class enemySpawner : MonoBehaviour
         EnemyWeapon weapon = boss.GetComponent<EnemyWeapon>();
         if (weapon != null)
         {
-            weapon.SetMaxHealth(1000); // Por ejemplo, 300 de vida
+            weapon.SetMaxHealth(1000);
             UIManager.Instance.ShowBossUI(1000, 1000);
         }
 

@@ -121,7 +121,7 @@ public class EnemyWeapon : MonoBehaviour
 
         // Destruir el objeto después de unos segundos para que se vea la física
         Destroy(gameObject, 4f);
-        SceneManager.LoadScene("Video");
+        SceneManager.LoadScene("Runner");
         // Pau
 
 

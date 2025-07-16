@@ -11,6 +11,7 @@ TagManager:
   - Pizo
   - Death
   - Checkpoint
+  - Shoot
   layers:
   - Default
   - TransparentFX

@@ -19,7 +19,12 @@ public class Menu : MonoBehaviour
         {
             StartCoroutine(ActivarMenuDespuesDeSegundos(3));
         }
+        if (SceneManager.GetActiveScene().name == "DeathRunner")
+        {
+            StartCoroutine(ActivarMenuDespuesDeSegundos(3));
+        }
     }
+
 
     IEnumerator ActivarMenuDespuesDeSegundos(float segundos)
     {
@@ -43,5 +48,10 @@ public class Menu : MonoBehaviour
     {
 
         Application.Quit();
+    }
+    public void ReturnGameRunner()
+    {
+        SceneManager.LoadScene("Runner"); // Reemplazá con tu escena real
+
     }
 }
