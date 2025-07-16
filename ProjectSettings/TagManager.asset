@@ -8,6 +8,9 @@ TagManager:
   - EnemyBullet
   - BulletPlayer
   - NPC
+  - Pizo
+  - Death
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
