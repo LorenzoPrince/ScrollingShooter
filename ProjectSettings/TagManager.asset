@@ -12,6 +12,8 @@ TagManager:
   - Death
   - Checkpoint
   - Shoot
+  - Button
+  - Enemy
   layers:
   - Default
   - TransparentFX

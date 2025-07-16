@@ -23,7 +23,7 @@ public class ShootingTopDown : MonoBehaviour
             rb.linearVelocity = firePoint.forward * bulletSpeed;
         }
 
-        Destroy(bullet, 2f);
+        Destroy(bullet, 4f);
 
     }
 }

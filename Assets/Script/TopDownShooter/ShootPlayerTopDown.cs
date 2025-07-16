@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine;
+
 
 public class ShootPlayerTopDown : ShootingTopDown
 {
     public void Onfire(InputAction.CallbackContext context)
     {
-
-        Shoot();
+        if (context.performed) // que se active sol9 una cvez cyando toque
+        {
+            Shoot();
+        }
     }
 }

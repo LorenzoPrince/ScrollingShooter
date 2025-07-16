@@ -117,6 +117,15 @@ public class playerPlataforrm : MonoBehaviour
 
 
     }
+    private void OnTriggerEnter(Collider contraLoQueChoque)
+    {
+        Debug.Log("choque contra " + contraLoQueChoque.gameObject.name);
+        if (contraLoQueChoque.gameObject.CompareTag("Button"))
+        {
+            SceneManager.LoadScene("TopDownShooter");
+
+        }
+    }
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

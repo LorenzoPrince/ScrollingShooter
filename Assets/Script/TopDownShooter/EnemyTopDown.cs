@@ -28,4 +28,13 @@ public class EnemyTopDown : MonoBehaviour
             Debug.LogWarning("El jugador no se ha encontrado");
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("choque contra " + collision.gameObject.name);
+        if (collision.gameObject.CompareTag("Shoot"))
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject); //destruyo la bala
+        }
+    }
 }
