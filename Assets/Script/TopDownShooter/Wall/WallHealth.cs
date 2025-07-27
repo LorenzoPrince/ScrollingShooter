@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class WallHealth : MonoBehaviour
 {
-    private int maxHealth = 100;
+    public int maxHealth = 100;
     private int currentHealth;
+
     void Start()
     {
         currentHealth = maxHealth;   
     }
 
-    // Update is called once per frame
+
     public void TakeDamage(int damage) //se llamara cuando el enemigo le hace daño
     {
         currentHealth -= damage;
@@ -19,6 +20,13 @@ public class WallHealth : MonoBehaviour
         {
             Die();
         }
+    }
+    void Die()
+    {
+        Debug.Log("muro destruido!");
+
+        Destroy(gameObject);
+
     }
 
 }
