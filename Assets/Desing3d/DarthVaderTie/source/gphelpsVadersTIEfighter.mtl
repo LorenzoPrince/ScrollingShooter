@@ -1,0 +1,64 @@
+newmtl blinn3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.40 0.40 0.40
+Tf 1.00 1.00 1.00
+map_Kd VaderTIEwing2.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+newmtl blinn4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.40 0.40 0.40
+Tf 1.00 1.00 1.00
+map_Kd VadersTIEtail.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+newmtl blinn5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.40 0.40 0.40
+Tf 1.00 1.00 1.00
+map_Kd VadersTIEwingStrut.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+newmtl pasted__blinn2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.28 0.28 0.28
+Tf 1.00 1.00 1.00
+map_Kd TIEwings.jpg
+Ni 1.00
+Ks 0.03 0.03 0.03
+newmtl pasted__blinn2SG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.28 0.28 0.26
+Tf 1.00 1.00 1.00
+map_Kd TIEwings.jpg
+Ni 1.00
+Ks 0.03 0.03 0.03
+newmtl pasted__blinn12SG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.40 0.40 0.40
+Tf 1.00 1.00 1.00
+map_Kd VadersTIEbody.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+newmtl pasted__blinn14SG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.31 0.31 0.31
+Tf 1.00 1.00 1.00
+map_Kd TIEbottomHatch.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+newmtl phong1SG
+illum 4
+Kd 0.06 0.06 0.12
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.53 0.53 0.53
+Ns 48.58

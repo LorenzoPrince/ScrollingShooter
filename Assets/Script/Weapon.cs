@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections; //para corrutinas
 public class Weapon : MonoBehaviour
 {
     public AudioSource blaster;         // Asigna el audio en el Inspector
@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
    // [SerializeField] private GameObject shootVFXPrefab; // Prefab de las part�culas del disparo
     public Vector3 spawnPosition;
     //private AudioSource audioSource;
-
+    private bool puedeDisparar = true; // para ver si dispara
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +20,20 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) //hago referencia a script notas
+        if (Input.GetMouseButtonDown(0) && puedeDisparar) //hago referencia a script notas
         {
+            StartCoroutine(DisparoConCooldown());
             //audioSource.Play();
-            weapon();
-            blaster.Play();
+
         }
+    }
+    IEnumerator DisparoConCooldown()
+    {
+        puedeDisparar = false; // bloqueo disparos
+        blaster.Play();
+        weapon();
+        yield return new WaitForSeconds(1f);
+        puedeDisparar = true; // ahora puede disparar
     }
     void weapon()
     {
