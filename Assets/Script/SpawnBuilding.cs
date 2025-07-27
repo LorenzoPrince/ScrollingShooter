@@ -10,7 +10,7 @@ public class SpawnBuilding : MonoBehaviour
     void Start()
     {
         SpawnBlock();
-        InvokeRepeating("SpawnBlock", 3f, 6f);
+        InvokeRepeating("SpawnBlock", 6f, 9f);
     }
 
     // Update is called once per frame
