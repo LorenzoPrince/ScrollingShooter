@@ -23,6 +23,11 @@ public class Menu : MonoBehaviour
         {
             StartCoroutine(ActivarMenuDespuesDeSegundos(3));
         }
+        if (SceneManager.GetActiveScene().name == "TopDownShooter")
+        {
+            Debug.Log("Reiniciando escena TopDownShooter...");
+            SceneManager.LoadScene("TopDownShooter");
+        }
     }
 
 
