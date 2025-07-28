@@ -68,7 +68,7 @@ public class enemySpawner : MonoBehaviour
 
             }
 
-            if (currentWave >= 1)
+            if (currentWave >= 2)
             {
                 Debug.Log("Esperando 15 segundos antes de spawnear al jefe...");
 
@@ -180,8 +180,8 @@ public class enemySpawner : MonoBehaviour
         EnemyWeapon weapon = boss.GetComponent<EnemyWeapon>();
         if (weapon != null)
         {
-            weapon.SetMaxHealth(1000);
-            UIManager.Instance.ShowBossUI(1000, 1000);
+            weapon.SetMaxHealth(500);
+            UIManager.Instance.ShowBossUI(500, 500);
         }
 
 
@@ -199,13 +199,13 @@ public class enemySpawner : MonoBehaviour
         EnemyWeapon leftEscortWeapon = leftEscort.GetComponent<EnemyWeapon>();
         if (leftEscortWeapon != null)
         {
-            leftEscortWeapon.SetMaxHealth(500); // Vida escolta izquierda
+            leftEscortWeapon.SetMaxHealth(150); // Vida escolta izquierda
         }
 
         EnemyWeapon rightEscortWeapon = rightEscort.GetComponent<EnemyWeapon>();
         if (rightEscortWeapon != null)
         {
-            rightEscortWeapon.SetMaxHealth(500); // Vida escolta derecha
+            rightEscortWeapon.SetMaxHealth(150); // Vida escolta derecha
         }
         Debug.Log("¡Boss ha aparecido con escoltas!");
 
