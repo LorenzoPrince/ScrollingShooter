@@ -3821,7 +3821,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 103.80005, y: 13.699997}
+  m_AnchoredPosition: {x: 83.383385, y: 13.699997}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1375325942 stripped
@@ -5961,6 +5961,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'CazaTie '
       objectReference: {fileID: 0}
+    - target: {fileID: 1444788384132285767, guid: 57a1166414d7ee14ab739c5489ec6165, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4292373229742569587, guid: 57a1166414d7ee14ab739c5489ec6165, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.96
@@ -6017,6 +6021,10 @@ PrefabInstance:
     - target: {fileID: 5003860113737284234, guid: 0b067fb5702ff5e4c97d49d1ee38552a, type: 3}
       propertyPath: m_Name
       value: BombarderTie
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003860113737284234, guid: 0b067fb5702ff5e4c97d49d1ee38552a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8142846771205359838, guid: 0b067fb5702ff5e4c97d49d1ee38552a, type: 3}
       propertyPath: m_LocalPosition.x
