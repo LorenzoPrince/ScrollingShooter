@@ -37,6 +37,7 @@ public class EnemyTopDown : MonoBehaviour
         Debug.Log("choque contra " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Shoot"))
         {
+            GameData.killCountFloot++;
             Destroy(gameObject);
             Destroy(collision.gameObject); //destruyo la bala
         }

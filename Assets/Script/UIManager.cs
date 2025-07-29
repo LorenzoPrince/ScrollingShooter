@@ -87,6 +87,7 @@ public class UIManager : MonoBehaviour
 
     public void AddKill()
     {
+        GameData.killCount++;
         killCount++;
         killCountText.text = $"Kills: {killCount}";
     }

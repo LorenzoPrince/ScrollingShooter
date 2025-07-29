@@ -2816,7 +2816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c866d73fd372c4ea0c7b42e0fe0d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 500
+  maxHealth: 300
   healthSlider: {fileID: 1193572970}
 --- !u!4 &1004962946 stripped
 Transform:
