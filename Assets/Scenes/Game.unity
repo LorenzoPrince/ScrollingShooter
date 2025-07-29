@@ -1570,7 +1570,7 @@ MonoBehaviour:
   baseSpeed: 8
   speedIncreasePerWave: 1
   enemyType1: {fileID: 1444788384132285767, guid: 4fa4a941851b822448e23501f88d39ef, type: 3}
-  enemyType2: {fileID: 5003860113737284234, guid: 0b067fb5702ff5e4c97d49d1ee38552a, type: 3}
+  enemyType2: {fileID: 3744658622801734119, guid: 665cd3f7b6832cc49a2946018076e773, type: 3}
   enemyType3: {fileID: 1444788384132285767, guid: 4fa4a941851b822448e23501f88d39ef, type: 3}
   bossEnemy: {fileID: 5839111139304556059, guid: e932db4eb88e2f84fa0e62c2ee4c3726, type: 3}
   minX: -4.69
