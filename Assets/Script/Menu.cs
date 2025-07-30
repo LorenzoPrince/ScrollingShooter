@@ -7,9 +7,12 @@ public class Menu : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-
+ 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None; // Desbloquea el cursor
+        Cursor.visible = true; // Lo hace visible
+
         Debug.Log("Start corriendo en escena: " + SceneManager.GetActiveScene().name);
         if (SceneManager.GetActiveScene().name == "Video")
         {
@@ -23,10 +26,11 @@ public class Menu : MonoBehaviour
         {
             StartCoroutine(ActivarMenuDespuesDeSegundos(3));
         }
-        if (SceneManager.GetActiveScene().name == "TopDownShooter")
+        if (SceneManager.GetActiveScene().name == "DeathTopDown")
         {
-            Debug.Log("Reiniciando escena TopDownShooter...");
-            SceneManager.LoadScene("TopDownShooter");
+            StartCoroutine(ActivarMenuDespuesDeSegundos(3));
+
+
         }
     }
 
@@ -46,7 +50,7 @@ public class Menu : MonoBehaviour
     }
     public void ReturnGame()
     {
-        SceneManager.LoadScene("Game"); // Reemplazá con tu escena real
+        SceneManager.LoadScene("Game"); 
 
     }
     public void Exit()
@@ -56,7 +60,13 @@ public class Menu : MonoBehaviour
     }
     public void ReturnGameRunner()
     {
-        SceneManager.LoadScene("Runner"); // Reemplazá con tu escena real
+        SceneManager.LoadScene("Runner"); // cambia escena
 
+    }
+
+    public void ReturnGameTopDown()
+    {
+        SceneManager.LoadScene("TopDownShooter");
+        Debug.Log("Reiniciando escena TopDownShooter...");
     }
 }

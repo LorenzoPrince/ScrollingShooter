@@ -130,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 2843720718667868649, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 719364010}
+      objectReference: {fileID: 704588605}
     - target: {fileID: 4614641137650358979, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: m_Name
       value: A001_Costume_501st@Slow Run (10)
@@ -478,7 +478,7 @@ PrefabInstance:
     - target: {fileID: 2843720718667868649, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 719364010}
+      objectReference: {fileID: 704588605}
     - target: {fileID: 4614641137650358979, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: m_Name
       value: A001_Costume_501st@Slow Run (9)
@@ -636,7 +636,7 @@ PrefabInstance:
     - target: {fileID: 2843720718667868649, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 719364010}
+      objectReference: {fileID: 704588605}
     - target: {fileID: 4614641137650358979, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: m_Name
       value: A001_Costume_501st@Slow Run (6)
@@ -709,7 +709,7 @@ PrefabInstance:
     - target: {fileID: 2843720718667868649, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 719364010}
+      objectReference: {fileID: 704588605}
     - target: {fileID: 4614641137650358979, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: m_Name
       value: A001_Costume_501st@Slow Run (3)
@@ -990,7 +990,7 @@ PrefabInstance:
     - target: {fileID: 2843720718667868649, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 719364010}
+      objectReference: {fileID: 704588605}
     - target: {fileID: 4614641137650358979, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: m_Name
       value: A001_Costume_501st@Slow Run (2)
@@ -1604,7 +1604,7 @@ PrefabInstance:
     - target: {fileID: 2843720718667868649, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 719364010}
+      objectReference: {fileID: 704588605}
     - target: {fileID: 4614641137650358979, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: m_Name
       value: A001_Costume_501st@Slow Run (1)
@@ -1759,6 +1759,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!4 &704588605 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6188961413025801546, guid: 374bb19d5fd3c414284613dce5a208cd, type: 3}
+  m_PrefabInstance: {fileID: 896567150}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &719364005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,7 +3552,7 @@ PrefabInstance:
     - target: {fileID: 2843720718667868649, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 719364010}
+      objectReference: {fileID: 704588605}
     - target: {fileID: 4614641137650358979, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: m_Name
       value: A001_Costume_501st@Slow Run (4)
@@ -3689,7 +3694,7 @@ PrefabInstance:
     - target: {fileID: 2843720718667868649, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 719364010}
+      objectReference: {fileID: 704588605}
     - target: {fileID: 4614641137650358979, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: m_Name
       value: A001_Costume_501st@Slow Run (7)
@@ -5855,7 +5860,7 @@ PrefabInstance:
     - target: {fileID: 2843720718667868649, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 719364010}
+      objectReference: {fileID: 704588605}
     - target: {fileID: 4614641137650358979, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: m_Name
       value: A001_Costume_501st@Slow Run (8)
@@ -7103,7 +7108,7 @@ PrefabInstance:
     - target: {fileID: 2843720718667868649, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 719364010}
+      objectReference: {fileID: 704588605}
     - target: {fileID: 4614641137650358979, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: m_Name
       value: A001_Costume_501st@Slow Run (5)
@@ -7570,7 +7575,7 @@ PrefabInstance:
     - target: {fileID: 2843720718667868649, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 719364010}
+      objectReference: {fileID: 704588605}
     - target: {fileID: 4614641137650358979, guid: 7419b55d45dfcdd4ab599a42cce70488, type: 3}
       propertyPath: m_Name
       value: A001_Costume_501st@Slow Run
